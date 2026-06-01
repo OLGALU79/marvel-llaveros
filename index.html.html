@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marvel KeyChains | Llaveros Oficiales</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --red: #ED1D24;
+      --dark-red: #A8151B;
+      --gold: #F0B429;
+      --dark: #0A0A0A;
+      --darker: #050505;
+      --gray: #1A1A1A;
+      --light-gray: #2C2C2C;
+      --text: #E8E8E8;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--darker);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ---- HERO BG PATTERN ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(237,29,36,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(240,180,41,0.05) 0%, transparent 40%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 30px,
+          rgba(255,255,255,0.012) 30px,
+          rgba(255,255,255,0.012) 31px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(5,5,5,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--red);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 70px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .marvel-badge {
+      background: var(--red);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+    }
+    .nav-logo span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--red);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--red); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 8px 20px;
+      clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--dark-red) !important; transform: scale(1.05); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 100px 5% 60px;
+    }
+    .hero-bg-circles {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .hero-bg-circles span {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(237,29,36,0.15);
+      animation: pulse-ring 4s ease-in-out infinite;
+    }
+    .hero-bg-circles span:nth-child(1) { width: 500px; height: 500px; top: -100px; right: -100px; animation-delay: 0s; }
+    .hero-bg-circles span:nth-child(2) { width: 700px; height: 700px; top: -200px; right: -200px; animation-delay: 1s; }
+    .hero-bg-circles span:nth-child(3) { width: 900px; height: 900px; top: -300px; right: -300px; animation-delay: 2s; }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.03); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 600px; }
+    .hero-tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      padding: 5px 16px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
+      animation: slideIn 0.6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 0.95;
+      color: var(--white);
+      animation: slideIn 0.7s ease 0.1s both;
+    }
+    .hero h1 .accent { color: var(--red); }
+    .hero h1 .gold { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #aaa;
+      margin: 20px 0 36px;
+      line-height: 1.6;
+      font-weight: 300;
+      animation: slideIn 0.7s ease 0.2s both;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; animation: slideIn 0.7s ease 0.3s both; }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      padding: 14px 32px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+      transition: background 0.2s, transform 0.2s;
+      border: none; cursor: pointer;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--dark-red); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      padding: 13px 32px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 56px;
+      animation: slideIn 0.7s ease 0.4s both;
+    }
+    .stat { border-left: 3px solid var(--red); padding-left: 16px; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; color: var(--white); line-height: 1;
+    }
+    .stat-label { font-size: 0.75rem; color: #888; letter-spacing: 2px; text-transform: uppercase; }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--white);
+      letter-spacing: 2px;
+    }
+    .section-title span { color: var(--red); }
+    .section-sub {
+      color: #888;
+      font-size: 1rem;
+      margin-top: 8px;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* ===== PRODUCTS ===== */
+    #productos {
+      padding: 100px 5%;
+      position: relative; z-index: 1;
+    }
+    .section-header { margin-bottom: 56px; }
+    .divider {
+      width: 60px; height: 3px;
+      background: var(--red);
+      margin: 16px 0 0;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+    }
+    .product-card {
+      background: var(--gray);
+      border: 1px solid rgba(237,29,36,0.15);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--red);
+      box-shadow: 0 12px 40px rgba(237,29,36,0.25);
+    }
+    .product-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--red);
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+    .product-card:hover::before { transform: scaleY(1); }
+
+    .product-img {
+      height: 220px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      background: linear-gradient(135deg, #111 0%, #1c1c1c 100%);
+      position: relative; overflow: hidden;
+    }
+    .product-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at center, rgba(237,29,36,0.12), transparent 70%);
+    }
+    .badge-new, .badge-sale {
+      position: absolute; top: 12px; right: 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 0.7rem;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 10px;
+      clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    }
+    .badge-new { background: var(--gold); color: var(--dark); }
+    .badge-sale { background: var(--red); color: #fff; }
+
+    .product-info { padding: 20px; }
+    .product-hero { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.75rem; color: var(--red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .product-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); }
+    .product-desc { font-size: 0.85rem; color: #888; margin: 8px 0 16px; line-height: 1.5; }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; }
+    .price { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--gold); }
+    .price-old { font-size: 0.9rem; color: #555; text-decoration: line-through; margin-right: 6px; font-family: 'Barlow Condensed', sans-serif; }
+    .btn-buy {
+      background: var(--red);
+      color: #fff;
+      border: none; cursor: pointer;
+      padding: 8px 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-buy:hover { background: var(--dark-red); transform: scale(1.05); }
+
+    /* ===== BANNER ===== */
+    .banner {
+      background: var(--red);
+      padding: 60px 5%;
+      position: relative; z-index: 1; overflow: hidden;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px;
+    }
+    .banner::before {
+      content: 'MARVEL';
+      position: absolute; right: 2%;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18vw; color: rgba(0,0,0,0.12);
+      line-height: 1; pointer-events: none;
+    }
+    .banner-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: #fff; line-height: 1.1;
+    }
+    .banner-text p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-top: 8px; }
+    .banner-code {
+      background: rgba(0,0,0,0.3);
+      border: 2px dashed rgba(255,255,255,0.5);
+      padding: 20px 32px; text-align: center;
+    }
+    .banner-code span { display: block; color: rgba(255,255,255,0.7); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .banner-code strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--gold); letter-spacing: 4px;
+    }
+
+    /* ===== ABOUT ===== */
+    #nosotros {
+      padding: 100px 5%;
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .about-ring {
+      width: 300px; height: 300px; border-radius: 50%;
+      border: 2px solid rgba(237,29,36,0.3);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      animation: spin-slow 20s linear infinite;
+    }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .about-ring::before {
+      content: '';
+      position: absolute; top: -10px; left: 50%;
+      transform: translateX(-50%);
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 20px var(--red);
+    }
+    .about-icon {
+      font-size: 7rem;
+      animation: spin-slow 20s linear infinite reverse;
+    }
+    .about-features { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .feature-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px; background: var(--gray);
+      border-left: 3px solid var(--red);
+    }
+    .feature-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .feature-text strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); letter-spacing: 1px; text-transform: uppercase; }
+    .feature-text span { font-size: 0.85rem; color: #888; }
+
+    /* ===== CHATBOT SCREENSHOTS ===== */
+    #chatbot-demo {
+      padding: 100px 5%;
+      position: relative; z-index: 1;
+      background: var(--gray);
+    }
+    .screenshots-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px; margin-top: 48px;
+    }
+    .screenshot-card {
+      background: var(--darker);
+      border: 1px solid rgba(237,29,36,0.2);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .screenshot-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(237,29,36,0.2);
+    }
+    .screenshot-header {
+      background: var(--red);
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .screenshot-header span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 0.85rem;
+      color: #fff; letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .chat-icon { font-size: 1.1rem; }
+    .chat-window {
+      padding: 20px;
+      display: flex; flex-direction: column; gap: 12px;
+      min-height: 200px;
+    }
+    .msg { max-width: 80%; padding: 10px 14px; font-size: 0.85rem; line-height: 1.5; }
+    .msg-bot {
+      background: var(--light-gray);
+      color: var(--text);
+      border-radius: 0 12px 12px 12px;
+      align-self: flex-start;
+      position: relative;
+    }
+    .msg-bot::before {
+      content: '🤖';
+      position: absolute; top: -8px; left: -8px;
+      font-size: 0.9rem;
+      background: var(--red);
+      width: 20px; height: 20px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+    }
+    .msg-user {
+      background: var(--red);
+      color: #fff;
+      border-radius: 12px 0 12px 12px;
+      align-self: flex-end;
+    }
+    .screenshot-label {
+      padding: 12px 16px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.75rem; color: #666;
+      font-style: italic; text-align: center;
+    }
+
+    /* ===== CONTACT ===== */
+    #contacto {
+      padding: 100px 5%;
+      position: relative; z-index: 1;
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; margin-top: 48px; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+    .contact-item {
+      display: flex; gap: 16px; align-items: center;
+      padding: 20px; background: var(--gray);
+      border-left: 3px solid var(--red);
+    }
+    .contact-item-icon { font-size: 1.8rem; }
+    .contact-item-text strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; }
+    .contact-item-text span { font-size: 0.9rem; color: #888; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: #aaa; }
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--gray);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text);
+      padding: 12px 16px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: var(--red);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: var(--gray); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      border-top: 2px solid var(--red);
+      padding: 40px 5%;
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 12px; }
+    .footer-note { font-size: 0.8rem; color: #555; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: #555; text-decoration: none; font-size: 0.85rem; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--red); }
+
+    /* ===== CHATBOT BUBBLE ===== */
+    #chatbot-bubble {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9999;
+    }
+    .chatbot-btn {
+      width: 64px; height: 64px;
+      background: var(--red);
+      border: none; cursor: pointer;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 20px rgba(237,29,36,0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .chatbot-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 32px rgba(237,29,36,0.7);
+    }
+    .chatbot-btn::before {
+      content: '';
+      position: absolute; inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(237,29,36,0.4);
+      animation: ping 1.5s ease-in-out infinite;
+    }
+    @keyframes ping {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .chat-tooltip {
+      position: absolute;
+      bottom: 70px; right: 0;
+      background: var(--gray);
+      border: 1px solid var(--red);
+      padding: 8px 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--white);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .chatbot-btn:hover + .chat-tooltip { opacity: 1; }
+    .chat-tooltip::after {
+      content: '';
+      position: absolute; bottom: -8px; right: 20px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid var(--red);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      #nosotros { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    /* ===== MODAL (CART) ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 5000;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--gray);
+      border: 1px solid var(--red);
+      padding: 40px;
+      max-width: 440px; width: 90%;
+      position: relative;
+    }
+    .modal-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--white); margin-bottom: 12px; }
+    .modal-box p { color: #aaa; font-size: 0.95rem; line-height: 1.6; }
+    .modal-close {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none; color: #aaa;
+      font-size: 1.5rem; cursor: pointer;
+    }
+    .modal-close:hover { color: var(--red); }
+    .modal-actions { margin-top: 24px; display: flex; gap: 12px; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <div class="marvel-badge">MARVEL</div>
+    <span>KeyChains</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#chatbot-demo">Chatbot</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#contacto" class="nav-cta">Comprar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">⚡ Colección Oficial 2025</div>
+    <h1>
+      LLAVEROS<br>
+      <span class="accent">MARVEL</span><br>
+      <span class="gold">HEROES</span>
+    </h1>
+    <p class="hero-sub">
+      Colecciona a tus héroes favoritos del universo Marvel. Diseños exclusivos, materiales premium y ediciones limitadas que todo fan necesita.
+    </p>
+    <div class="hero-buttons">
+      <a href="#productos" class="btn-primary">Ver Colección</a>
+      <a href="#chatbot-demo" class="btn-secondary">Asistente Virtual</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Héroes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3K+</div>
+        <div class="stat-label">Clientes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Licenciado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="productos">
+  <div class="section-header">
+    <div class="section-title">COLECCIÓN <span>DESTACADA</span></div>
+    <p class="section-sub">Los llaveros más populares del universo Marvel</p>
+    <div class="divider"></div>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img">🦸<div class="badge-new">Nuevo</div></div>
+      <div class="product-info">
+        <div class="product-hero">Los Vengadores</div>
+        <div class="product-name">Iron Man Mark L</div>
+        <div class="product-desc">Llavero metálico con acabado cromado. Incluye LED rojo en el reactor arc.</div>
+        <div class="product-footer">
+          <div><span class="price-old">$25.000</span><span class="price">$18.000</span></div>
+          <button class="btn-buy" onclick="openModal('Iron Man Mark L')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">🛡️</div>
+      <div class="product-info">
+        <div class="product-hero">Los Vengadores</div>
+        <div class="product-name">Capitán América</div>
+        <div class="product-desc">Escudo en miniatura con relieve 3D. Aleación zinc cromado.</div>
+        <div class="product-footer">
+          <div><span class="price">$15.000</span></div>
+          <button class="btn-buy" onclick="openModal('Capitán América')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">🕷️<div class="badge-sale">-30%</div></div>
+      <div class="product-info">
+        <div class="product-hero">Spider-Man</div>
+        <div class="product-name">Spider-Man Classic</div>
+        <div class="product-desc">Figura articulada de 4cm con máscara removible. Edición limitada.</div>
+        <div class="product-footer">
+          <div><span class="price-old">$20.000</span><span class="price">$14.000</span></div>
+          <button class="btn-buy" onclick="openModal('Spider-Man Classic')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">⚡<div class="badge-new">Nuevo</div></div>
+      <div class="product-info">
+        <div class="product-hero">Thor</div>
+        <div class="product-name">Mjolnir Premium</div>
+        <div class="product-desc">Réplica del martillo de Thor en metal pesado. Cadena plateada incluida.</div>
+        <div class="product-footer">
+          <div><span class="price">$22.000</span></div>
+          <button class="btn-buy" onclick="openModal('Mjolnir Premium')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">🐾</div>
+      <div class="product-info">
+        <div class="product-hero">X-Men</div>
+        <div class="product-name">Wolverine Claws</div>
+        <div class="product-desc">Garras de adamantium en miniatura. Detalle ultra-realista en acero.</div>
+        <div class="product-footer">
+          <div><span class="price">$16.000</span></div>
+          <button class="btn-buy" onclick="openModal('Wolverine Claws')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">💚</div>
+      <div class="product-info">
+        <div class="product-hero">Los Vengadores</div>
+        <div class="product-name">Hulk Smash</div>
+        <div class="product-desc">Figura de resina con pintura artesanal. Verde intenso con detalles musculares.</div>
+        <div class="product-footer">
+          <div><span class="price">$19.000</span></div>
+          <button class="btn-buy" onclick="openModal('Hulk Smash')">Agregar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BANNER PROMO -->
+<div class="banner">
+  <div class="banner-text">
+    <h2>ENVÍO GRATIS<br>EN COLOMBIA</h2>
+    <p>En pedidos superiores a $50.000 COP a todo el país</p>
+  </div>
+  <div class="banner-code">
+    <span>Código de descuento</span>
+    <strong>MARVEL10</strong>
+  </div>
+  <a href="#contacto" class="btn-primary" style="align-self:center;">Pedir Ahora</a>
+</div>
+
+<!-- ABOUT -->
+<section id="nosotros">
+  <div class="about-visual">
+    <div class="about-ring">
+      <div class="about-icon">🦸</div>
+    </div>
+  </div>
+  <div>
+    <div class="section-title">¿POR QUÉ <span>ELEGIRNOS?</span></div>
+    <p class="section-sub">Somos el único distribuidor oficial de llaveros Marvel en Colombia</p>
+    <div class="divider"></div>
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-text">
+          <strong>Producto 100% Oficial</strong>
+          <span>Todos nuestros llaveros cuentan con licencia original Marvel Entertainment.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-text">
+          <strong>Envío Express</strong>
+          <span>Despacho en 24 horas. Entrega en 2-5 días hábiles a cualquier ciudad de Colombia.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💎</div>
+        <div class="feature-text">
+          <strong>Material Premium</strong>
+          <span>Zinc, acero inoxidable y resina de alta calidad. Diseñados para durar toda la vida.</span>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-text">
+          <strong>Asistente Virtual 24/7</strong>
+          <span>Nuestro chatbot te ayuda a elegir el llavero perfecto en cualquier momento del día.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHATBOT DEMO -->
+<section id="chatbot-demo">
+  <div class="section-header">
+    <div class="section-title">ASISTENTE <span>VIRTUAL</span></div>
+    <p class="section-sub">Nuestro chatbot te ayuda a encontrar el llavero Marvel perfecto</p>
+    <div class="divider"></div>
+  </div>
+  <div class="screenshots-grid">
+
+    <div class="screenshot-card">
+      <div class="screenshot-header">
+        <span class="chat-icon">🤖</span>
+        <span>Bienvenida al Chat</span>
+      </div>
+      <div class="chat-window">
+        <div class="msg msg-bot">¡Hola, agente! Soy JARVIS, el asistente oficial de Marvel KeyChains 🦸 ¿En qué puedo ayudarte hoy?</div>
+        <div class="msg msg-user">Hola! Quiero un llavero de Spider-Man</div>
+        <div class="msg msg-bot">¡Excelente elección, fanático del trepamuros! Tenemos 3 modelos disponibles. ¿Prefieres el clásico, el No Way Home o el Miles Morales?</div>
+      </div>
+      <div class="screenshot-label">Pantalla 1 — Saludo inicial y navegación de productos</div>
+    </div>
+
+    <div class="screenshot-card">
+      <div class="screenshot-header">
+        <span class="chat-icon">🛒</span>
+        <span>Consulta de Precio</span>
+      </div>
+      <div class="chat-window">
+        <div class="msg msg-user">¿Cuánto cuesta el de Iron Man?</div>
+        <div class="msg msg-bot">El llavero Iron Man Mark L tiene un precio de <strong style="color:var(--gold)">$18.000 COP</strong>. Incluye caja de regalo y cadena metálica. ¡Y ahora con 20% de descuento! 🔴</div>
+        <div class="msg msg-user">¿Tienen envío a Medellín?</div>
+        <div class="msg msg-bot">¡Sí! Enviamos a toda Colombia 🇨🇴 Medellín tiene entrega en 2 días hábiles. Envío gratis en pedidos +$50.000.</div>
+      </div>
+      <div class="screenshot-label">Pantalla 2 — Consulta de precios y disponibilidad</div>
+    </div>
+
+    <div class="screenshot-card">
+      <div class="screenshot-header">
+        <span class="chat-icon">📦</span>
+        <span>Proceso de Compra</span>
+      </div>
+      <div class="chat-window">
+        <div class="msg msg-user">Quiero pedir el Mjolnir y el Capitán América</div>
+        <div class="msg msg-bot">¡Perfecto! Tu pedido:<br>⚡ Mjolnir Premium — $22.000<br>🛡️ Capitán América — $15.000<br><strong>Total: $37.000</strong><br>¿Confirmas el pedido?</div>
+        <div class="msg msg-user">Sí, confirmo</div>
+        <div class="msg msg-bot">¡Pedido registrado! 🎉 En breve recibirás el link de pago. ¡Que la fuerza de los Vengadores te acompañe!</div>
+      </div>
+      <div class="screenshot-label">Pantalla 3 — Confirmación y cierre de pedido</div>
+    </div>
+
+  </div>
+  <div style="text-align:center; margin-top:48px;">
+    <p style="color:#888; margin-bottom:20px; font-size:0.95rem;">¿Listo para hablar con nuestro asistente en tiempo real?</p>
+    <button class="btn-primary" onclick="document.getElementById('chatbot-bubble').querySelector('.chatbot-btn').click()">
+      ⚡ Abrir Chatbot Ahora
+    </button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="section-header">
+    <div class="section-title">CONTÁCTANOS</div>
+    <p class="section-sub">¿Tienes dudas? Nuestro equipo está listo para ayudarte</p>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div class="contact-item-text">
+          <strong>Ubicación</strong>
+          <span>Bogotá D.C., Colombia · Zona T, Chapinero</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📱</div>
+        <div class="contact-item-text">
+          <strong>WhatsApp</strong>
+          <span>+57 310 123 4567</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div class="contact-item-text">
+          <strong>Email</strong>
+          <span>ventas@marvelkeychains.co</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div class="contact-item-text">
+          <strong>Horario</strong>
+          <span>Lunes a Sábado · 8am – 7pm</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Nombre Completo</label>
+        <input type="text" placeholder="Tu nombre, héroe..."/>
+      </div>
+      <div class="form-group">
+        <label>Correo Electrónico</label>
+        <input type="email" placeholder="correo@ejemplo.com"/>
+      </div>
+      <div class="form-group">
+        <label>Héroe Favorito</label>
+        <select>
+          <option value="">Selecciona un héroe</option>
+          <option>Iron Man</option>
+          <option>Spider-Man</option>
+          <option>Thor</option>
+          <option>Capitán América</option>
+          <option>Hulk</option>
+          <option>Wolverine</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea placeholder="¿Qué llavero estás buscando?"></textarea>
+      </div>
+      <button class="btn-primary" onclick="alert('¡Mensaje enviado! Nuestro equipo te contactará pronto ⚡')">
+        Enviar Mensaje ⚡
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <div class="marvel-badge">MARVEL</div>
+    <span style="font-family:'Barlow Condensed',sans-serif; color:#666; font-size:0.85rem; letter-spacing:2px; text-transform:uppercase;">KeyChains © 2025</span>
+  </div>
+  <p class="footer-note">Distribuidor oficial · Todos los personajes son propiedad de Marvel Entertainment, LLC.</p>
+  <div class="footer-links">
+    <a href="#">Política de Privacidad</a>
+    <a href="#">Términos</a>
+    <a href="#">Devoluciones</a>
+  </div>
+</footer>
+
+<!-- CHATBOT BUBBLE -->
+<div id="chatbot-bubble">
+  <button class="chatbot-btn" id="chat-toggle" title="Abrir asistente Marvel">🤖</button>
+  <div class="chat-tooltip">¿Necesitas ayuda, héroe?</div>
+</div>
+
+<!-- CHAT WINDOW WIDGET -->
+<div id="chat-widget" style="
+  display:none;
+  position:fixed; bottom:104px; right:28px;
+  width:360px; max-height:520px;
+  background:#1A1A1A;
+  border:2px solid #ED1D24;
+  border-radius:4px;
+  box-shadow: 0 16px 48px rgba(237,29,36,0.35);
+  z-index:9998;
+  display:none;
+  flex-direction:column;
+  font-family:'Barlow',sans-serif;
+  overflow:hidden;
+">
+  <!-- Header -->
+  <div style="background:#ED1D24; padding:14px 16px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="font-size:1.4rem;">🤖</span>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:#fff; letter-spacing:2px;">JARVIS</div>
+        <div style="font-size:0.7rem; color:rgba(255,255,255,0.8); letter-spacing:1px;">Asistente Marvel KeyChains</div>
+      </div>
+    </div>
+    <button id="chat-close" style="background:none;border:none;color:#fff;font-size:1.3rem;cursor:pointer;line-height:1;">✕</button>
+  </div>
+
+  <!-- Messages -->
+  <div id="chat-messages" style="
+    flex:1; overflow-y:auto; padding:16px;
+    display:flex; flex-direction:column; gap:12px;
+    max-height:340px;
+    scrollbar-width:thin; scrollbar-color:#ED1D24 #111;
+  ">
+    <!-- Welcome message injected by JS -->
+  </div>
+
+  <!-- Quick replies -->
+  <div id="quick-replies" style="padding:8px 12px; display:flex; flex-wrap:wrap; gap:6px; border-top:1px solid rgba(255,255,255,0.05);">
+    <button class="qr-btn" onclick="sendQuick('¿Qué llaveros tienen?')">Ver productos</button>
+    <button class="qr-btn" onclick="sendQuick('¿Cuáles son los precios?')">Precios</button>
+    <button class="qr-btn" onclick="sendQuick('¿Hacen envíos?')">Envíos</button>
+    <button class="qr-btn" onclick="sendQuick('¿Hay descuentos?')">Descuentos</button>
+  </div>
+
+  <!-- Input -->
+  <div style="padding:12px; border-top:1px solid rgba(255,255,255,0.08); display:flex; gap:8px;">
+    <input id="chat-input" type="text"
+      placeholder="Escribe tu pregunta..."
+      style="flex:1; background:#111; border:1px solid rgba(255,255,255,0.15); color:#eee;
+             padding:10px 14px; font-family:'Barlow',sans-serif; font-size:0.9rem; outline:none;
+             border-radius:2px; transition:border-color 0.2s;"
+      onfocus="this.style.borderColor='#ED1D24'"
+      onblur="this.style.borderColor='rgba(255,255,255,0.15)'"
+    />
+    <button id="chat-send" onclick="sendMessage()" style="
+      background:#ED1D24; border:none; color:#fff; cursor:pointer;
+      padding:10px 16px; font-family:'Barlow Condensed',sans-serif;
+      font-weight:700; font-size:0.85rem; letter-spacing:1px;
+      clip-path:polygon(8% 0%,100% 0%,92% 100%,0% 100%);
+      transition:background 0.2s;
+    ">⚡</button>
+  </div>
+</div>
+
+<!-- Quick reply button styles -->
+<style>
+  .qr-btn {
+    background: transparent;
+    border: 1px solid rgba(237,29,36,0.5);
+    color: #ED1D24;
+    padding: 5px 12px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 1px;
+    cursor: pointer; transition: background 0.2s, color 0.2s;
+    clip-path: polygon(5% 0%,100% 0%,95% 100%,0% 100%);
+  }
+  .qr-btn:hover { background: #ED1D24; color: #fff; }
+  #chat-messages::-webkit-scrollbar { width: 4px; }
+  #chat-messages::-webkit-scrollbar-track { background: #111; }
+  #chat-messages::-webkit-scrollbar-thumb { background: #ED1D24; }
+</style>
+
+<!-- MODAL CART -->
+<div class="modal-overlay" id="cart-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>¡AGREGADO! ⚡</h3>
+    <p id="modal-text">Producto agregado a tu carrito de compras.</p>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="closeModal()">Seguir comprando</button>
+      <a href="#contacto" class="btn-secondary" onclick="closeModal()">Finalizar pedido</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHATBOT CON CLAUDE API ===== -->
+<script>
+  // ---- Historial de conversación ----
+  const chatHistory = [];
+
+  // ---- System prompt con info de la tienda ----
+  const SYSTEM_PROMPT = `Eres JARVIS, el asistente virtual oficial de Marvel KeyChains, una tienda colombiana de llaveros oficiales de Marvel. Responde siempre en español, de forma amable, entusiasta y con referencias al universo Marvel. Sé breve y directo.
+
+CATÁLOGO COMPLETO:
+1. Iron Man Mark L — $18.000 COP (precio original $25.000). Llavero metálico cromado con LED rojo. Stock: 15 unidades. ✅ Disponible.
+2. Capitán América — $15.000 COP. Escudo en miniatura con relieve 3D en aleación zinc. Stock: 22 unidades. ✅ Disponible.
+3. Spider-Man Classic — $14.000 COP (precio original $20.000, 30% descuento). Figura articulada 4cm, máscara removible, edición limitada. Stock: 8 unidades. ⚠️ Pocas unidades.
+4. Mjolnir Premium — $22.000 COP. Réplica del martillo de Thor en metal pesado con cadena plateada. Stock: 12 unidades. ✅ Disponible.
+5. Wolverine Claws — $16.000 COP. Garras de adamantium en miniatura, acero inoxidable. Stock: 18 unidades. ✅ Disponible.
+6. Hulk Smash — $19.000 COP. Figura de resina con pintura artesanal. Stock: 9 unidades. ✅ Disponible.
+
+INFORMACIÓN GENERAL:
+- Envío gratis en pedidos mayores a $50.000 COP.
+- Envío a toda Colombia. Bogotá: 1-2 días. Otras ciudades: 2-5 días hábiles.
+- Código de descuento: MARVEL10 (10% adicional en cualquier pedido).
+- Todos los productos son 100% oficiales con licencia Marvel Entertainment.
+- Formas de pago: PSE, tarjeta crédito/débito, Nequi, Daviplata, transferencia.
+- Garantía de autenticidad en todos los productos.
+- WhatsApp: +57 310 123 4567
+- Email: ventas@marvelkeychains.co
+- Horario: Lunes a Sábado 8am-7pm
+
+Si preguntan por combos o pedidos de varios productos, ofrece calcular el total y mencionar si aplica envío gratis. Si el cliente quiere comprar, diles que pueden escribir al WhatsApp o llenar el formulario de contacto en la página.`;
+
+  // ---- Render de mensajes ----
+  function addMessage(role, text, isTyping = false) {
+    const container = document.getElementById('chat-messages');
+    const wrap = document.createElement('div');
+    wrap.style.cssText = `display:flex; flex-direction:column; align-items:${role==='user'?'flex-end':'flex-start'};`;
+
+    const bubble = document.createElement('div');
+    bubble.style.cssText = `
+      max-width:80%; padding:10px 14px; font-size:0.875rem; line-height:1.55;
+      border-radius:${role==='user'?'12px 0 12px 12px':'0 12px 12px 12px'};
+      background:${role==='user'?'#ED1D24':'#2C2C2C'};
+      color:${role==='user'?'#fff':'#e8e8e8'};
+      word-break:break-word;
+    `;
+
+    if (isTyping) {
+      bubble.innerHTML = '<span style="opacity:0.7">JARVIS está escribiendo</span> <span style="animation:blink 1s infinite">...</span>';
+      bubble.id = 'typing-bubble';
+    } else {
+      // Render markdown-like bold with **
+      bubble.innerHTML = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g,'<br>');
+    }
+
+    wrap.appendChild(bubble);
+    container.appendChild(wrap);
+    container.scrollTop = container.scrollHeight;
+    return wrap;
+  }
+
+  function removeTyping() {
+    const t = document.getElementById('typing-bubble');
+    if (t) t.closest('div[style]').remove();
+  }
+
+  // ---- Llamada a la API de Claude ----
+  async function callClaude(userMessage) {
+    chatHistory.push({ role: 'user', content: userMessage });
+
+    addMessage('assistant', '', true); // typing indicator
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: chatHistory
+        })
+      });
+
+      const data = await response.json();
+      removeTyping();
+
+      const reply = data.content?.map(b => b.text || '').join('') || 'Lo siento, ocurrió un error. Inténtalo de nuevo.';
+      chatHistory.push({ role: 'assistant', content: reply });
+      addMessage('assistant', reply);
+    } catch (err) {
+      removeTyping();
+      addMessage('assistant', '⚠️ Hubo un problema de conexión. Escríbenos al WhatsApp: +57 310 123 4567');
+    }
+  }
+
+  // ---- Enviar mensaje ----
+  async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    addMessage('user', text);
+    await callClaude(text);
+  }
+
+  function sendQuick(text) {
+    addMessage('user', text);
+    callClaude(text);
+  }
+
+  // ---- Enter key ----
+  document.getElementById('chat-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  // ---- Toggle widget ----
+  const widget = document.getElementById('chat-widget');
+  document.getElementById('chat-toggle').addEventListener('click', function() {
+    const isOpen = widget.style.display === 'flex';
+    widget.style.display = isOpen ? 'none' : 'flex';
+    if (!isOpen && chatHistory.length === 0) {
+      // Mensaje de bienvenida
+      addMessage('assistant', '¡Hola, héroe! 🦸 Soy **JARVIS**, tu asistente de Marvel KeyChains.\n\n¿En qué puedo ayudarte hoy? Puedo decirte precios, disponibilidad, envíos y más. ⚡');
+    }
+  });
+  document.getElementById('chat-close').addEventListener('click', function() {
+    widget.style.display = 'none';
+  });
+
+  // ---- Blink animation ----
+  const style = document.createElement('style');
+  style.textContent = '@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }';
+  document.head.appendChild(style);
+
+  // ---- Cart modal ----
+  function openModal(name) {
+    document.getElementById('modal-text').textContent =
+      '¡"' + name + '" agregado a tu carrito! 🦸 Escríbenos por WhatsApp o llena el formulario para finalizar tu pedido.';
+    document.getElementById('cart-modal').classList.add('active');
+  }
+  function closeModal() {
+    document.getElementById('cart-modal').classList.remove('active');
+  }
+  document.getElementById('cart-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+
+</body>
+</html>
